@@ -47,6 +47,7 @@ zstyle ':omz:update' frequency 13   # update frequency in days
 
 plugins=(
   git
+  z
 )
 
 alias ks="~/scripts/quickcommands/kube-shell.sh"
