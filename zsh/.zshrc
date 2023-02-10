@@ -17,43 +17,43 @@ ZSH_THEME="robbyrussell"
 zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13   # update frequency in days
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
 plugins=(
   git
   z
+  web-search
 )
 
+
+# --- ALIAS AND COMMANDS ---
+
 alias ks="~/scripts/quickcommands/kube-shell.sh"
+alias todos="task list"
+alias zsh="vim ~/.zshrc"
+
+todo(){
+  eval "task $@"
+}
+
+so() {
+  eval "stackoverflow $@"
+}
+
+go() {
+  eval "google $@"
+}
+
+
+# --- FINN specific ---
+
+alias repo="finn repo:web"
+alias travis="finn ci:web"
+alias pline="finn pipeline:web"
+alias pods="finn pod:list"
+
 alias kdev="kubectl config use-context finn-fiaas-dev-gke01"
 alias kprod="kubectl config use-context finn-fiaas-prod-gke01"
 alias kbet="kubectl get pods -lowner=buyer-experience-torget"
+
 alias jwtprod='~/scripts/user_jwt_prod.sh $JWT_PROD | pbcopy'
 alias jwtdev='~/scripts/user_jwt_dev.sh $JWT_DEV | pbcopy'
 
@@ -64,6 +64,12 @@ boprod(){
 bodev(){
   eval "~/scripts/backoffice_jwt_dev.sh $1 | pbcopy"
 }
+
+podrestart(){
+  eval "finn pod:restart --pod $1"
+}
+
+# --- Sources and exports ---
 
 source $ZSH/oh-my-zsh.sh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh

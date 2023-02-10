@@ -1,9 +1,14 @@
 [includeIf "gitdir:~/dotfiles/"]
     path = ~/.ssh/personal/.gitconfig
 
+[includeIf "gitdir:~/personal/"]
+    path = ~/.ssh/personal/.gitconfig
+
 [includeIf "gitdir:~/dev/"]
     path = ~/.ssh/work/.gitconfig 
     
 [core]
 	excludesfile = /Users/ellen/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
+[pull]
+	rebase = true
