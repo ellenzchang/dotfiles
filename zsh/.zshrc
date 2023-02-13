@@ -47,7 +47,7 @@ go() {
 
 alias repo="finn repo:web"
 alias travis="finn ci:web"
-alias pline="finn pipeline:web"
+alias pipe="finn pipeline:web"
 alias pods="finn pod:list"
 
 alias kdev="kubectl config use-context finn-fiaas-dev-gke01"
