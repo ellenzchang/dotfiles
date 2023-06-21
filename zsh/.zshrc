@@ -18,7 +18,6 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 zstyle ':omz:update' frequency 13   # update frequency in days
 
 plugins=(
-  git
   z
   web-search
 )
@@ -29,6 +28,10 @@ plugins=(
 alias ks="~/scripts/quickcommands/kube-shell.sh"
 alias todos="task list"
 alias zsh="vim ~/.zshrc"
+alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias ga="git add"
+alias gp="git push"
+alias copy="tr -d '\n' | pbcopy"
 
 todo(){
   eval "task $@"
@@ -42,6 +45,14 @@ go() {
   eval "google $@"
 }
 
+gcm() {
+  eval 'git commit -m "$@"'
+}
+
+gb() {
+  eval "git branch -b $1"
+}
+
 
 # --- FINN specific ---
 
@@ -50,23 +61,37 @@ alias travis="finn ci:web"
 alias pipe="finn pipeline:web"
 alias pods="finn pod:list"
 
-alias kdev="kubectl config use-context finn-fiaas-dev-gke01"
-alias kprod="kubectl config use-context finn-fiaas-prod-gke01"
-alias kbet="kubectl get pods -lowner=buyer-experience-torget"
+alias k="kubectl"
+alias kbet="k get pods -lowner=buyer-experience-torget"
+alias kprod="k config use-context finn-fiaas-prod-gke01"
+alias kdev="k config use-context finn-fiaas-dev-gke01"
 
-alias jwtprod='~/scripts/user_jwt_prod.sh $JWT_PROD | pbcopy'
-alias jwtdev='~/scripts/user_jwt_dev.sh $JWT_DEV | pbcopy'
+jwtprod(){
+  eval "~/scripts/account-tools/user_jwt_prod.sh $JWT_PROD | copy"
+}
+
+jwtdev(){
+  eval "~/scripts/account-tools/user_jwt_dev.sh $JWT_DEV | copy"
+}
 
 boprod(){
-  eval "~/scripts/backoffice_jwt_prod.sh $1 | pbcopy"
+  eval "~/scripts/account-tools/backoffice_jwt_prod.sh $1 | copy"
 }
 
 bodev(){
-  eval "~/scripts/backoffice_jwt_dev.sh $1 | pbcopy"
+  eval "~/scripts/account-tools/backoffice_jwt_dev.sh $1 | copy"
 }
 
 podrestart(){
   eval "finn pod:restart --pod $1"
+}
+
+podget(){
+  eval "k get pods | grep $1"
+}
+
+podrollout(){
+  eval "k rollout restart deployment $1"
 }
 
 # --- Sources and exports ---
@@ -93,3 +118,5 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
+
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
