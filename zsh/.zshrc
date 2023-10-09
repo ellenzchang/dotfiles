@@ -33,6 +33,14 @@ alias ga="git add"
 alias gp="git push"
 alias copy="tr -d '\n' | pbcopy"
 
+getId(){
+  eval "ps -A | grep $@ | awk '{print $1}'"
+}
+
+kill(){
+  eval "kill -9 $@"
+}
+
 todo(){
   eval "task $@"
 }
@@ -92,6 +100,10 @@ podget(){
 
 podrollout(){
   eval "k rollout restart deployment $1"
+}
+
+kitempage(){
+  eval "finn pod:list --app recommerce-item-page --env $1"
 }
 
 # --- Sources and exports ---
