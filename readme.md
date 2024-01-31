@@ -13,3 +13,6 @@ Go into IntelliJ and run in within a file
 ```bash
 - RectangleConfig.json
 ```
+
+# ai related setup
+- fastsetup: https://github.com/fastai/fastsetup/tree/master (not necessary with intellij since they setup envs automatically for you)

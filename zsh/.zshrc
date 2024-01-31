@@ -71,8 +71,10 @@ alias pods="finn pod:list"
 
 alias k="kubectl"
 alias kbet="k get pods -lowner=buyer-experience-torget"
-alias kprod="k config use-context finn-fiaas-prod-gke01"
-alias kdev="k config use-context finn-fiaas-dev-gke01"
+alias finnd="k config use-context finn-fiaas-dev-gke01"
+alias finnp="k config use-context finn-fiaas-prod-gke01"
+alias torid="kubectl config use-context nmp-rc-toripg-apps-gke01"
+alias torip="kubectl config use-context nmp-rc-i01-apps-gke01"
 
 jwtprod(){
   eval "~/scripts/account-tools/user_jwt_prod.sh $JWT_PROD | copy"
