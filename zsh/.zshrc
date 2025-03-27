@@ -75,13 +75,33 @@ alias finnd="k config use-context finn-fiaas-dev-gke01"
 alias finnp="k config use-context finn-fiaas-prod-gke01"
 alias torid="kubectl config use-context nmp-rc-toripg-apps-gke01"
 alias torip="kubectl config use-context nmp-rc-i01-apps-gke01"
+alias dbad="kubectl config use-context nmp-i002"
+alias dbap="kubectl config use-context dk-prod-i006"
+alias blocketd="kubectl config use-context se-dev-i007"
+alias blocketp="kubectl config use-context se-prod-i009"
 
 jwtprod(){
-  eval "~/scripts/account-tools/user_jwt_prod.sh $JWT_PROD | copy"
+  eval "~/scripts/account-tools/user_jwt_prod.sh $1 | copy"
 }
 
 jwtdev(){
-  eval "~/scripts/account-tools/user_jwt_dev.sh $JWT_DEV | copy"
+  eval "~/scripts/account-tools/user_jwt_dev.sh $1 | copy"
+}
+
+jwtdbad(){
+  eval "~/scripts/account-tools/user_jwt_dba_dev.sh $1 | copy"
+}
+
+jwtdbap(){
+  eval "~/scripts/account-tools/user_jwt_dba_prod.sh $1 | copy"
+}
+
+jwttorid(){
+  eval "~/scripts/account-tools/user_jwt_toripg.sh $1 | copy"
+}
+
+jwttorip(){
+  eval "~/scripts/account-tools/user_jwt_tori_prod.sh $1 | copy"
 }
 
 boprod(){
@@ -132,5 +152,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:~/dev/nmp-team-search-techdocs/scripts
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
