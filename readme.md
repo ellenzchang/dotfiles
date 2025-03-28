@@ -1,5 +1,8 @@
 # dotfiles
 Simply clone to home and run `setup.sh`
+
+Setup iterm color scheme using `iterm/ayu.itermcolors`
+
 Go into vim with `vim` and run
 ```bash
 :source ~/.vimrc
