@@ -1,14 +1,17 @@
 # symbolic links
-ln -s ~/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
-ln -s ~/dotfiles/git/.gitconfig ~/.gitconfig
-ln -s ~/dotfiles/git/.gitignore_global ~/.gitignore_global
+ln -sfn ~/dotfiles/zsh/.zshrc ~/.zshrc 
+ln -sfn ~/dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
+ln -sfn ~/dotfiles/vim/.vimrc ~/.vimrc
+ln -sfn ~/dotfiles/git/.gitconfig ~/.gitconfig
+ln -sfn ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 
-brew install git kubectl maven node yarn diff-so-fancy zsh zsh-autosuggestions autojump htop task git-lfs
-brew install firefox iterm2 slack spotify intellij-idea 1password rectangle google-chrome docker java jetbrains-tool --cask
+brew install git kubectl maven node yarn diff-so-fancy zsh zsh-autosuggestions autojump htop task git-lfs thefuck asdf
+for app in firefox iterm2 slack spotify 1password rectangle google-chrome docker temurin jetbrains-toolbox; do
+  brew install --cask "$app" || echo "❌ Failed to install $app"
+done
 
 # finn specific
+brew untap finn/brew
 brew tap finn/brew git@github.schibsted.io:finn/homebrew-brew.git
 brew install finn
 
