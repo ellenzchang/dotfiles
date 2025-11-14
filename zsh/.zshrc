@@ -61,6 +61,12 @@ gb() {
   eval "git branch -b $1"
 }
 
+jdk() {
+      version=$1
+      unset JAVA_HOME;
+      export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
+      java -version
+}
 
 # --- FINN specific ---
 
@@ -73,7 +79,7 @@ alias k="kubectl"
 alias kbet="k get pods -lowner=buyer-experience-torget"
 alias finnd="k config use-context finn-fiaas-dev-gke01"
 alias finnp="k config use-context finn-fiaas-prod-gke01"
-alias torid="kubectl config use-context nmp-rc-toripg-apps-gke01"
+alias torid="kubectl config use-context tori-dev"
 alias torip="kubectl config use-context nmp-rc-i01-apps-gke01"
 alias dbad="kubectl config use-context nmp-i002"
 alias dbap="kubectl config use-context dk-prod-i006"
@@ -152,7 +158,9 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:~/dev/nmp-team-search-techdocs/scripts
+export PATH=$PATH:~/dev/search/nmp-team-search-techdocs/scripts
+export PATH=$PATH:~/secret_2.1.0_darwin_amd64
+export PATH="$PATH:/opt/homebrew/share/google-cloud-sdk/bin"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
@@ -163,3 +171,13 @@ export LC_ALL="en_US.UTF-8"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/completion.zsh.inc'; fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
