@@ -5,7 +5,7 @@ ln -sfn ~/dotfiles/vim/.vimrc ~/.vimrc
 ln -sfn ~/dotfiles/git/.gitconfig ~/.gitconfig
 ln -sfn ~/dotfiles/git/.gitignore_global ~/.gitignore_global
 
-brew install git kubectl maven node yarn diff-so-fancy zsh zsh-autosuggestions autojump htop task git-lfs thefuck asdf imagemagick codex
+brew install git kubectl maven node yarn diff-so-fancy zsh zsh-autosuggestions autojump htop task git-lfs thefuck asdf imagemagick codex colima beads
 for app in firefox iterm2 slack spotify 1password rectangle google-chrome docker temurin jetbrains-toolbox; do
   brew install --cask "$app" || echo "❌ Failed to install $app"
 done

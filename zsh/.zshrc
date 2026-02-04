@@ -172,6 +172,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# docker / colima
+export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+export DOCKER_HOST="unix://${HOME}/.colima/docker.sock"
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/path.zsh.inc'; fi
 
@@ -181,3 +185,5 @@ if [ -f '/Users/ellen.zhang.chang@schibsted.com/google-cloud-sdk/completion.zsh.
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+export PATH="$HOME/.local/bin:$PATH"
