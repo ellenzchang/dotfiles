@@ -1,0 +1,19 @@
+Host github.schibsted.io
+  HostName github.schibsted.io
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/work/id_ed25519
+  User ellen-zhang-chang
+
+Host github.com
+  AddKeysToAgent yes
+  HostName github.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/personal/id_ed25519
+  User ellenzchang
+
+Host github.com-work
+  AddKeysToAgent yes
+  HostName github.com
+  IdentitiesOnly yes
+  IdentityFile ~/.ssh/work/id_ed25519
+  User ellen-zhang-chang
