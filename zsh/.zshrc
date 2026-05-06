@@ -162,7 +162,6 @@ export PATH=$PATH:~/dev/search/nmp-team-search-techdocs/scripts
 export PATH=$PATH:~/secret_2.1.0_darwin_amd64
 export PATH="$PATH:/opt/homebrew/share/google-cloud-sdk/bin"
 
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 # set locale
 export LANG="en_US.UTF-8"
@@ -187,3 +186,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export PATH="$HOME/.local/bin:$PATH"
+
+# claude specific for FINN
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION='europe-west1'
+export ANTHROPIC_VERTEX_PROJECT_ID='vend-pc-search-vertex'
