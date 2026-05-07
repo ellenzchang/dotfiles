@@ -7,14 +7,14 @@ Go into vim with `vim` and run
 ```bash
 :source ~/.vimrc
 ```
-Go into IntelliJ and run in within a file 
-```bash
-:source ~/.vimrc
-```
 
-## non-automatic configs
+
+## Rectangle setup
+
+Open Rectangle and import the settings from the following file:
+
 ```bash
-- RectangleConfig.json
+RectangleConfig.json
 ```
 
 ## ssh setup
@@ -50,6 +50,16 @@ ssh-add ~/.ssh/personal/id_ed25519
 ssh -T git@github.schibsted.io
 ssh -T git@github.com
 ```
+
+## IntelliJ setup
+
+1. In the Project window, click ⋮ Options > Behavior > Always Select Opened File
+
+2. Install IdeaVim plugin and run the following command within a file
+```bash
+:source ~/.vimrc
+```
+
 
 # ai related setup
 - fastsetup: https://github.com/fastai/fastsetup/tree/master (not necessary with intellij since they setup envs automatically for you)
