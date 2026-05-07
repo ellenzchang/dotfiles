@@ -158,7 +158,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:~/dev/search/nmp-team-search-techdocs/scripts
+export PATH=$PATH:~/dev/nmp-team-search-techdocs/scripts
 export PATH=$PATH:~/secret_2.1.0_darwin_amd64
 export PATH="$PATH:/opt/homebrew/share/google-cloud-sdk/bin"
 
